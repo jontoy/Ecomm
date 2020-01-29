@@ -1,0 +1,28 @@
+<%- include("../../partials/header") %>
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-one-quarter">
+      <form method="POST">
+        <h1 class="title">Sign In</h1>
+        <div class="field">
+          <label class="label">Email</label>
+          <input required class="input" name="email" placeholder="Email" />
+          <% if(locals.errors) { %>
+            <%- include('../../partials/error', {errors, prop:'email'}) %>
+          <% } %>
+        </div>
+        <div class="field">
+          <label class="label">Password</label>
+          <input required class="input" name="password" placeholder="Password" type="password" />
+          <% if(locals.errors) { %>
+            <%- include('../../partials/error', {errors, prop:'password'}) %>
+          <% } %>
+        </div>
+        <button class="button is-primary">Sign In</button>
+      </form>
+      <p><a href="/signup">Need an account? Sign Up!</a></p>
+      <p><a href="/">Back</a></p>
+    </div>
+  </div>
+</div>
+<%- include("../../partials/footer") %>
