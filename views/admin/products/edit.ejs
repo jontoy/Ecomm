@@ -1,0 +1,31 @@
+<%- include("../../partials/admin/header") %>
+
+<div class="columns is-centered">
+    <div class="column is-half">
+        <h1 class="subtitle"> Edit a Product </h1>
+        <form method="POST" action="<%=`/admin/products/${product.id}?_method=PUT`%>" enctype="multipart/form-data">
+            <div class="field">
+                <label class="label">Title</label>
+                <input class="input" name="title" placeholder="Product Title" value="<%= product.title %>" />
+                <% if(locals.errors) { %>
+                    <%- include('../../partials/error', {errors, prop:'title'}) %>
+                <% } %>
+            </div>
+            <div class="field">
+                <label class="label">Price</label>
+                <input class="input" name="price" placeholder="Product Price" value="<%= product.price %>" />
+                <% if(locals.errors) { %>
+                    <%- include('../../partials/error', {errors, prop:'price'}) %>
+                <% } %>
+            </div>
+            <div class="field">
+                <label class="label">Image</label>
+                <input name="image" type="file" />
+            </div>
+            <br />
+            <button class="button is-primary">Edit</button>
+            <a href="/admin/products" class="button">Back</a>
+        </form>
+    </div>
+</div>
+<%- include("../../partials/admin/footer") %>
